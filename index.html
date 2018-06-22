@@ -1,0 +1,634 @@
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="animate.css"></link>
+	<style>
+		.area-title {
+			text-align: center;
+			animation-duration: 1s;
+		}
+
+
+		.intro-font {
+			font-size: 20px;
+			line-height: 1.7;
+			color: #6a8280;
+		}
+
+		.a2-p-font {
+			font-size: 18px;
+			line-height: 1.56;
+			color: #6a8280;
+		}
+
+		.animation-block {
+			animation-fill-mode: backwards;
+			animation-play-state: paused;
+		}
+
+		.to-animate {
+			animation-fill-mode: both;
+			animation-play-state: running;
+		}
+
+		.bg {
+			max-width: 540px;
+			margin: 60 auto 0 auto;
+			overflow: hidden;
+		}
+
+		@media screen and (max-width: 768px) {
+			.bg {
+				max-width: 95%;
+			}
+		}
+
+		.a1-bg {
+			padding-bottom: calc(450/330*100%);
+			position: relative;
+		}
+
+		.lipee {
+			position: absolute;
+			bottom: 0;
+			left: calc(30/330*100%);
+			width: calc(85/330*100%);
+			border: 5px solid rgb(120, 141, 158);
+			border-radius: 50%;
+		}
+
+		.emily {
+			position: absolute;
+			bottom: 0;
+			right: calc(30/300*100%);
+			width: calc(85/330*100%);
+			border: 5px solid rgb(67, 163, 241);
+			border-radius: 50%;
+		}
+
+		.a1-bg .ex {
+			width: calc(70/330*100%);
+			position: absolute;
+			animation-fill-mode: inherit;
+			animation-play-state: inherit;
+			animation-duration: .3s;
+		}
+
+		@keyframes show-result {
+			from {
+				visibility: hidden;
+				transform: scale(10, 10);
+			}
+			to {
+				visibility: visible;
+			}
+		}
+
+		.a1-bg .result {
+			width: calc(100/290*100%);
+			left: 50%;
+			bottom: 0;
+			transform: translateX(-50%);
+			position: absolute;
+			animation-fill-mode: inherit;
+			animation-play-state: inherit;
+			animation-duration: .2s;
+			animation-name: show-result;
+			animation-delay: 4.3s;
+		}
+
+		.a1-bg .ex-girl-1 {
+			left: 0;
+			bottom: calc(100/450*100%);
+			animation-delay: 1.0s;
+		}
+
+		.a1-bg .ex-girl-2 {
+			left: 0;
+			bottom: calc(185/450*100%);
+			animation-delay: 1.3s;
+		}
+
+		.a1-bg .ex-girl-3 {
+			left: 0;
+			bottom: calc(270/450*100%);
+			animation-delay: 1.6s;
+		}
+
+		.a1-bg .ex-girl-4 {
+			left: 0;
+			bottom: calc(355/450*100%);
+			animation-delay: 1.9s;
+		}
+
+		.a1-bg .ex-girl-5 {
+			left: calc(80/330*100%);
+			bottom: calc(100/450*100%);
+			animation-delay: 2.2s;
+		}
+
+		.a1-bg .ex-girl-6 {
+			left: calc(80/330*100%);
+			bottom: calc(185/450*100%);
+			animation-delay: 2.5s;
+		}
+
+		.a1-bg .ex-girl-7 {
+			left: calc(80/330*100%);
+			bottom: calc(270/450*100%);
+			animation-delay: 2.8s;
+		}
+
+		.a1-bg .ex-girl-8 {
+			left: calc(80/330*100%);
+			bottom: calc(355/450*100%);
+			animation-delay: 3.1s;
+		}
+
+		.a1-bg .ex-boy-1 {
+			right: calc(40/300*100%);
+			bottom: calc(100/450*100%);
+			animation-delay: 3.4s;
+		}
+
+		.a1-bg .ex-boy-2 {
+			right: calc(40/300*100%);
+			bottom: calc(185/450*100%);
+			animation-delay: 3.7s;
+		}
+
+		.a1-bg .ex-boy-3 {
+			right: calc(40/300*100%);
+			bottom: calc(270/450*100%);
+			animation-delay: 4.0s;
+		}
+
+		.a2-bg {
+			padding-bottom: calc(375/320*100%);
+			position: relative;
+		}
+
+		.bra {
+			width: calc(50/320*100%);
+			position: absolute;
+		}
+
+		.boy-bra {
+			left: calc(50/320*100%);
+			bottom: calc(200/375*100%);
+			transition: transform 1s linear .5s;
+			transform: scale(1);
+		}
+
+		.girl-bra {
+			right: calc(50/320*100%);
+			bottom: calc(200/375*100%);
+			transition: transform 1s linear .5s;
+			transform: scale(1);
+		}
+
+		.to-animate .boy-bra {
+			transform: scale(3);
+		}
+
+		.to-animate .girl-bra {
+			transform: scale(1.5);
+		}
+
+		.a2-bg .result {
+			width: calc(100/320*100%);
+			left: calc(50/320*100%);
+			top: calc(232/375*100%);
+			position: absolute;
+			animation-fill-mode: inherit;
+			animation-play-state: inherit;
+			animation-duration: .2s;
+			animation-name: show-result;
+			animation-delay: 2.5s;
+		}
+
+		.a3-bg {
+			padding-bottom: calc(400/340*100%);
+			position: relative;
+		}
+
+		.a3-bg .ver-line {
+			position: absolute;
+			width: calc(330/340*100%);
+			height: 3px;
+			background-color: white;
+			top: calc(150/400*100%);
+			left: 0;
+		}
+
+		.a3-bg .hor-line {
+			position: absolute;
+			height: calc(330/340*100%);
+			width: 3px;
+			background-color: white;
+			top: 0;
+			left: calc(170/340*100%);
+		}
+
+		.a3-bg .left-counter {
+			position: absolute;
+			width: calc(150/340*100%);
+			height: calc(70/400*100%);
+			left: 0;
+			top: calc(165/400*100%);
+			font-size: 36px;
+			color: white;
+			text-align: center;
+		}
+
+		.a3-bg .right-counter {
+			position: absolute;
+			width: calc(150/340*100%);
+			height: calc(70/400*100%);
+			right: 0;
+			top: calc(165/400*100%);
+			font-size: 36px;
+			color: white;
+			text-align: center;
+		}
+
+		@media screen and (min-width: 678px) {
+			.a3-bg .right-counter,
+			.a3-bg .left-counter {
+				font-size: 50px;
+			}
+		}
+
+		.a3-bg .left-up {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: calc(130/340*100%);
+		}
+
+		.a3-bg .right-up {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: calc(130/340*100%);
+		}
+
+		.a3-bg .left-bt {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: calc(150/340*100%);
+			animation-fill-mode: inherit;
+			animation-play-state: inherit;
+			animation-duration: .2s;
+			animation-name: show-result;
+			animation-delay: 2s;
+		}
+
+		.a3-bg .right-bt {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: calc(150/340*100%);
+			animation-fill-mode: inherit;
+			animation-play-state: inherit;
+			animation-duration: .2s;
+			animation-name: show-result;
+			animation-delay: 4s;
+		}
+
+		.a4-bg {
+			padding-bottom: calc(390/360*100%);
+			position: relative;
+		}
+
+		.chart {
+			width: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+
+
+		@keyframes lipee-line {
+			0% {
+				transform: translate(0, 0);
+			}
+
+			25% {
+				transform: translate(120%, 80%);
+			}
+
+			50% {
+				transform: translate(200%, 200%);
+			}
+
+			75% {
+				transform: translate(285%, 300%);
+			}
+
+			100% {
+				transform: translate(330%, 370%)
+			}
+		}
+
+		@keyframes emily-line {
+			0% {
+				transform: translate(0, 0);
+			}
+
+			25% {
+				transform: translate(120%, -80%);
+			}
+
+			50% {
+				transform: translate(220%, -220%);
+			}
+
+			75% {
+				transform: translate(300%, -360%);
+			}
+
+			100% {
+				transform: translate(330%, -370%)
+			}
+		}
+
+		.a4-bg .lipee {
+			left: calc(55/360*100%);
+			top: 0;
+			width: calc(60/360*100%);
+			z-index: 1;
+			animation-fill-mode: inherit;
+			animation-play-state: inherit;
+			animation-duration: 1s;
+			animation-name: lipee-line;
+			animation-timing-function: linear;
+		}
+
+		.a4-bg .emily {
+			left: calc(55/360*100%);
+			top: calc(270/390*100%);
+			width: calc(60/360*100%);
+			z-index: 1;
+			animation-fill-mode: inherit;
+			animation-play-state: inherit;
+			animation-duration: 1s;
+			animation-name: emily-line;
+			animation-timing-function: linear;
+		}
+
+		.a4-bg .lines-box {
+			width: calc(250/360*100%);
+			height: calc(370/390*100%);
+			position: absolute;
+			left: calc(85/360*100%);
+			top: calc(30/390*100%);
+			animation-fill-mode: inherit;
+			animation-play-state: inherit;
+		}
+
+		.a4-bg .date {
+			width: calc(110/360*100%);
+			left: calc(155/360*100%);
+			top: calc(0/390*100%);
+			animation-fill-mode: inherit;
+			animation-play-state: inherit;
+			animation-duration: .5s;
+			animation-delay: 1.1s;
+			position: absolute;
+			z-index: 1;
+		}
+
+		@keyframes slide-right {
+			0% {
+				transform: translateX(-100%);
+
+			}
+
+			to {
+				transform: translateX(0%);
+
+			}
+		}
+
+		@keyframes slide-left {
+			from {
+				transform: translateX(100%);
+			}
+			to {
+				transform: translateX(0%);
+			}
+		}
+
+		.mask-box {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			overflow: hidden;
+			animation-fill-mode: inherit;
+			animation-play-state: inherit;
+			animation-name: slide-right;
+			animation-duration: 1s;
+			animation-delay: .1s;
+			animation-timing-function: ease-out;
+		}
+
+		.lines {
+			width: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			animation-fill-mode: inherit;
+			animation-play-state: inherit;
+			animation-name: slide-left;
+			animation-duration: 1s;
+			animation-delay: .1s;
+			animation-timing-function: ease-out;
+		}
+
+	</style>
+</head>
+
+<body style="background: linear-gradient(#a1c4fd, #c2e9fb);">
+	<div class="area-title bg fadeInUp">
+		<img src="opening.png" width="100%"></img>
+	</div>
+	<p class="intro-font bg">
+	</p>
+
+	<div class="bg">
+		<div id="area-1" class="animation-block a1-bg">
+			<img src="lipee-1.png" class="lipee"></img>
+			<img src="emily-1.png" class="emily"></img>
+			<img src="ex-girl.png" class="ex ex-girl-1 fadeInUp"></img>
+			<img src="ex-girl.png" class="ex ex-girl-2 fadeInUp"></img>
+			<img src="ex-girl.png" class="ex ex-girl-3 fadeInUp"></img>
+			<img src="ex-girl.png" class="ex ex-girl-4 fadeInUp"></img>
+			<img src="ex-girl.png" class="ex ex-girl-5 fadeInUp"></img>
+			<img src="ex-girl.png" class="ex ex-girl-6 fadeInUp"></img>
+			<img src="ex-girl.png" class="ex ex-girl-7 fadeInUp"></img>
+			<img src="ex-girl.png" class="ex ex-girl-8 fadeInUp"></img>
+			<img src="ex-boy-1.png" class="ex ex-boy-1 fadeInUp"></img>
+			<img src="ex-boy-2.png" class="ex ex-boy-2 fadeInUp"></img>
+			<img src="ex-boy-3.png" class="ex ex-boy-3 fadeInUp"></img>
+			<img src="ping.png" class="result"></img>
+		</div>
+		<p class="a2-p-font">
+		</p>
+	</div>
+	<div class="bg">
+		<div id="area-2" class="animation-block a2-bg">
+			<img src="man-5.png" class="lipee"></img>
+			<img src="emily-1.png" class="emily"></img>
+			<img src="bra.png" class="bra boy-bra"></img>
+			<img src="bra.png" class="bra girl-bra"></img>
+			<img src="sung.png" class="result"></img>
+		</div>
+		<p class="a2-p-font">
+		</p>
+	</div>
+	<div class="bg">
+		<div id="area-3" class="animation-block a3-bg">
+			<img src="man-4.png" class="lipee"></img>
+			<img src="emily-1.png" class="emily"></img>
+			<img src="left-up.png" class="left-up"></img>
+			<img src="right-up.png" class="right-up"></img>
+			<img src="left-bt.png" class="left-bt"></img>
+			<img src="right-bt.png" class="right-bt"></img>
+			<div id="left-counter" class="left-counter" data-count="11.6">0
+			</div>
+			<div id="right-counter" class="right-counter" data-count="8.7">0
+			</div>
+			<div class="ver-line"></div>
+			<div class="hor-line"></div>
+		</div>
+		<p class="a2-p-font">
+		</p>
+	</div>
+	<div class="bg">
+		<div id="area-4" class="animation-block a4-bg">
+			<img src="man-3.png" class="lipee"></img>
+			<img src="emily-1.png" class="emily"></img>
+			<img src="chart.png" class="chart"></img>
+			<img src="date.png" class="date zoomIn"></img>
+			<div class="lines-box">
+				<div class="mask-box">
+					<img src="lines.png" class="lines"></img>
+				</div>
+			</div>
+		</div>
+		<p class="a2-p-font">
+		</p>
+	</div>
+</body>
+<!-- 以下的程式碼是用來計算 <div id="area-*"> 是否出現在 viewport 裡，如果在 viewport 裡，則在會增加 to-animate 的 class 在 <div id="area-*"> 上 -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+<script>
+	$.fn.isInViewport = function() {
+		var elementTop = $(this)
+			.offset()
+			.top;
+		var elementBottom = elementTop + $(this)
+			.outerHeight();
+
+		var viewportTop = $(window)
+			.scrollTop();
+		var viewportBottom = $(window)
+			.scrollTop() + window.innerHeight / 2;
+		return elementBottom > viewportTop && elementTop < viewportBottom;
+	};
+
+	$(window)
+		.on('resize scroll', function() {
+			$('.animation-block')
+				.each(function() {
+					var activeArea = $(this)
+						.attr('id');
+					if ($(this)
+						.isInViewport()) {
+						$('#' + activeArea)
+							.addClass('to-animate');
+						if (activeArea == 'area-3') {
+							$('#left-counter')
+								.each(function() {
+									var $this = $(this),
+										countTo = $this.attr('data-count');
+									$this.removeAttr('id');
+
+									function financial(x) {
+										return Number.parseFloat(x)
+											.toFixed(2);
+									}
+
+									$({ countNum: $this.text() })
+										.animate({
+												countNum: countTo
+											},
+
+											{
+												duration: 1000,
+												easing: 'linear',
+												step: function() {
+
+													$this.text(financial(this.countNum) + '秒');
+												},
+												complete: function() {
+													$this.text(this.countNum + '秒');
+													//alert('finished');
+													$('#right-counter')
+														.each(function() {
+															var $this = $(this),
+																countTo = $this.attr('data-count');
+
+															$this.removeAttr('id');
+
+															function financial(x) {
+																return Number.parseFloat(x)
+																	.toFixed(2);
+															}
+
+															setTimeout(function() {
+
+																$({ countNum: $this.text() })
+																	.animate({
+																			countNum: countTo
+																		},
+
+																		{
+																			duration: 1000,
+																			easing: 'linear',
+																			step: function() {
+
+																				$this.text(financial(this.countNum) + '秒');
+																			},
+																			complete: function() {
+																				$this.text(this.countNum + '秒');
+																				//alert('finished');
+																			}
+
+																		});
+
+															}, 1500)
+
+														});
+												}
+
+											});
+
+								});
+
+						}
+
+					}
+				});
+		});
+
+</script>
+
+</html>
