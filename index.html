@@ -2,6 +2,10 @@
 
 <head>
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1, initial-scale=1">
+    <meta property="og:title" content="大祐與芷man的新鴛鴦蝴蝶夢">
+    <meta property="og:image" content="https://nickhsine.github.io/lipee-emily/kiss.jpg">
+    <meta property="og:description" content=" 說起大祐和芷嫻這一對，從大三到現在經過了十年淬鍊，在今天這麼特別的日子，我們將見證他們許下一生的承諾...">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" type="text/css" href="animate.css"></link>
     <style>
         body {
@@ -471,7 +475,7 @@
         <div class="title">戀愛產銷履歷</div>
         <p class="desc">
             首先看到兩位大大的羅曼史，真可謂是「昨日像那東流水，離我遠去不可留」，在擦出火花之前，這對才子佳人各有功課要修，所有過去的章節，造就如今大祐和芷嫻璀璨的篇章。身為損友，我們有義務發揮惡搞創意，簡單量化他們的前朝情史，不過在此提醒，請大家看完就把它們束之高閣，跟著我們的新人一同書寫嶄新人生段落吧！
-            </p>
+        </p>
         <div id="area-1" class="animation-block a1-bg">
             <img src="lipee-1.png" class="lipee"></img>
             <img src="emily-1.png" class="emily"></img>
@@ -556,21 +560,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
 <script>
-    /* $.fn.isInViewport = function () {
-                        var elementTop = $(this)
-                            .offset()
-                            .top;
-                        var elementBottom = elementTop + $(this)
-                            .outerHeight();
-
-                        var viewportTop = $(window)
-                            .scrollTop();
-                        var viewportBottom = $(window)
-                            .scrollTop() + window.innerHeight / 2;
-                        return elementBottom > viewportTop && elementTop < viewportBottom;
-                    };
-                    console.log('window onload!')
-                   */
     var waypoint1 = new Waypoint({
         element: document.getElementById('area-1'),
         handler: function (direction) {
@@ -689,116 +678,6 @@
             $('#area-4').addClass('to-animate');
         }
     })
-    /*
-        function onload() {
-            console.log('window onload!')
-            $(window)
-                .on('resize scroll', function () {
-                    $('.animation-block')
-                        .each(function () {
-                            var activeArea = $(this)
-                                .attr('id');
-                            if ($(this)
-                                .isInViewport()) {
-                                $('#' + activeArea)
-                                    .addClass('to-animate');
-                                if (activeArea == 'area-3') {
-                                    $('#left-counter')
-                                        .each(function () {
-                                            var $this = $(this),
-                                                countTo = $this.attr('data-count');
-                                            $this.removeAttr('id');
-
-                                            function financial(x) {
-                                                return Number.parseFloat(x)
-                                                    .toFixed(2);
-                                            }
-
-                                            $({
-                                                    countNum: $this.text()
-                                                })
-                                                .animate({
-                                                        countNum: countTo
-                                                    },
-
-                                                    {
-                                                        duration: 1000,
-                                                        easing: 'linear',
-                                                        step: function () {
-
-                                                            $this.text(financial(this.countNum) +
-                                                                '秒');
-                                                        },
-                                                        complete: function () {
-                                                            $this.text(this.countNum + '秒');
-                                                            //alert('finished');
-                                                            $('#right-counter')
-                                                                .each(function () {
-                                                                    var $this = $(this),
-                                                                        countTo = $this.attr(
-                                                                            'data-count');
-
-                                                                    $this.removeAttr('id');
-
-                                                                    function financial(x) {
-                                                                        return Number.parseFloat(
-                                                                                x)
-                                                                            .toFixed(2);
-                                                                    }
-
-                                                                    setTimeout(function () {
-
-                                                                        $({
-                                                                                countNum: $this
-                                                                                    .text()
-                                                                            })
-                                                                            .animate({
-                                                                                    countNum: countTo
-                                                                                },
-
-                                                                                {
-                                                                                    duration: 1000,
-                                                                                    easing: 'linear',
-                                                                                    step: function () {
-
-                                                                                        $this
-                                                                                            .text(
-                                                                                                financial(
-                                                                                                    this
-                                                                                                    .countNum
-                                                                                                ) +
-                                                                                                '秒'
-                                                                                            );
-                                                                                    },
-                                                                                    complete: function () {
-                                                                                        $this
-                                                                                            .text(
-                                                                                                this
-                                                                                                .countNum +
-                                                                                                '秒'
-                                                                                            );
-                                                                                        //alert('finished');
-                                                                                    }
-
-                                                                                });
-
-                                                                    }, 1500)
-
-                                                                });
-                                                        }
-
-                                                    });
-
-                                        });
-
-                                }
-
-                            }
-                        });
-                });
-        }
-        window.addEventListener('load', onload)
-    	*/
 </script>
 
 </html>
