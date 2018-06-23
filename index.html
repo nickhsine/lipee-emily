@@ -82,11 +82,11 @@
 
         @keyframes show-result {
             from {
-                visibility: hidden;
+                opacity: 0;
                 transform: scale(10, 10);
             }
             to {
-                visibility: visible;
+                opacity: 1;
             }
         }
 
@@ -530,13 +530,12 @@
     </div>
 
     <div class="bg" style="margin-top: 100px">
-		<div class="title">哪來的勇氣？</div>
+        <div class="title">哪來的勇氣？</div>
         <p class="desc">
-			今天，很榮幸和大夥一起見證他們的婚禮，望著他們攜手走向愛情的殿（ㄈ ㄣ ˊ）堂（ㄇ ㄨ ˋ）。
-			我替大祐感到開心，但也難過；喜的是，大祐和嫻嫻兩人誓約成立一個美滿的家庭。難過的是，大祐以後沒時間玩 PS4（洗衣擦地就飽囉），就沒新遊戲可以借我玩啦。
+            今天，很榮幸和大夥一起見證他們的婚禮，望著他們攜手走向愛情的殿（ㄈ ㄣ ˊ）堂（ㄇ ㄨ ˋ）。 我替大祐感到開心，但也難過；喜的是，大祐和嫻嫻兩人誓約成立一個美滿的家庭。難過的是，大祐以後沒時間玩 PS4（洗衣擦地就飽囉），就沒新遊戲可以借我玩啦。
 
-		</p>
-	</div>
+        </p>
+    </div>
 </body>
 <!-- 以下的程式碼是用來計算 <div id="area-*"> 是否出現在 viewport 裡，如果在 viewport 裡，則在會增加 to-animate 的 class 在 <div id="area-*"> 上 -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -556,106 +555,115 @@
             .scrollTop() + window.innerHeight / 2;
         return elementBottom > viewportTop && elementTop < viewportBottom;
     };
+	console.log('window onload!')
+    function onload() {
+        console.log('window onload!')
+        $(window)
+            .on('resize scroll', function () {
+                $('.animation-block')
+                    .each(function () {
+                        var activeArea = $(this)
+                            .attr('id');
+                        if ($(this)
+                            .isInViewport()) {
+                            $('#' + activeArea)
+                                .addClass('to-animate');
+                            if (activeArea == 'area-3') {
+                                $('#left-counter')
+                                    .each(function () {
+                                        var $this = $(this),
+                                            countTo = $this.attr('data-count');
+                                        $this.removeAttr('id');
 
-    $(window)
-        .on('resize scroll', function () {
-            $('.animation-block')
-                .each(function () {
-                    var activeArea = $(this)
-                        .attr('id');
-                    if ($(this)
-                        .isInViewport()) {
-                        $('#' + activeArea)
-                            .addClass('to-animate');
-                        if (activeArea == 'area-3') {
-                            $('#left-counter')
-                                .each(function () {
-                                    var $this = $(this),
-                                        countTo = $this.attr('data-count');
-                                    $this.removeAttr('id');
+                                        function financial(x) {
+                                            return Number.parseFloat(x)
+                                                .toFixed(2);
+                                        }
 
-                                    function financial(x) {
-                                        return Number.parseFloat(x)
-                                            .toFixed(2);
-                                    }
-
-                                    $({
-                                            countNum: $this.text()
-                                        })
-                                        .animate({
-                                                countNum: countTo
-                                            },
-
-                                            {
-                                                duration: 1000,
-                                                easing: 'linear',
-                                                step: function () {
-
-                                                    $this.text(financial(this.countNum) + '秒');
+                                        $({
+                                                countNum: $this.text()
+                                            })
+                                            .animate({
+                                                    countNum: countTo
                                                 },
-                                                complete: function () {
-                                                    $this.text(this.countNum + '秒');
-                                                    //alert('finished');
-                                                    $('#right-counter')
-                                                        .each(function () {
-                                                            var $this = $(this),
-                                                                countTo = $this.attr('data-count');
 
-                                                            $this.removeAttr('id');
+                                                {
+                                                    duration: 1000,
+                                                    easing: 'linear',
+                                                    step: function () {
 
-                                                            function financial(x) {
-                                                                return Number.parseFloat(x)
-                                                                    .toFixed(2);
-                                                            }
+                                                        $this.text(financial(this.countNum) +
+                                                            '秒');
+                                                    },
+                                                    complete: function () {
+                                                        $this.text(this.countNum + '秒');
+                                                        //alert('finished');
+                                                        $('#right-counter')
+                                                            .each(function () {
+                                                                var $this = $(this),
+                                                                    countTo = $this.attr(
+                                                                        'data-count');
 
-                                                            setTimeout(function () {
+                                                                $this.removeAttr('id');
 
-                                                                $({
-                                                                        countNum: $this
-                                                                            .text()
-                                                                    })
-                                                                    .animate({
-                                                                            countNum: countTo
-                                                                        },
+                                                                function financial(x) {
+                                                                    return Number.parseFloat(
+                                                                            x)
+                                                                        .toFixed(2);
+                                                                }
 
-                                                                        {
-                                                                            duration: 1000,
-                                                                            easing: 'linear',
-                                                                            step: function () {
+                                                                setTimeout(function () {
 
-                                                                                $this.text(
-                                                                                    financial(
-                                                                                        this
-                                                                                        .countNum
-                                                                                    ) +
-                                                                                    '秒'
-                                                                                );
+                                                                    $({
+                                                                            countNum: $this
+                                                                                .text()
+                                                                        })
+                                                                        .animate({
+                                                                                countNum: countTo
                                                                             },
-                                                                            complete: function () {
-                                                                                $this.text(
-                                                                                    this
-                                                                                    .countNum +
-                                                                                    '秒'
-                                                                                );
-                                                                                //alert('finished');
-                                                                            }
 
-                                                                        });
+                                                                            {
+                                                                                duration: 1000,
+                                                                                easing: 'linear',
+                                                                                step: function () {
 
-                                                            }, 1500)
+                                                                                    $this
+                                                                                        .text(
+                                                                                            financial(
+                                                                                                this
+                                                                                                .countNum
+                                                                                            ) +
+                                                                                            '秒'
+                                                                                        );
+                                                                                },
+                                                                                complete: function () {
+                                                                                    $this
+                                                                                        .text(
+                                                                                            this
+                                                                                            .countNum +
+                                                                                            '秒'
+                                                                                        );
+                                                                                    //alert('finished');
+                                                                                }
 
-                                                        });
-                                                }
+                                                                            });
 
-                                            });
+                                                                }, 1500)
 
-                                });
+                                                            });
+                                                    }
+
+                                                });
+
+                                    });
+
+                            }
 
                         }
-
-                    }
-                });
-        });
+                    });
+            });
+    }
+	window.addEventListener('load', onload)
 </script>
 
 </html>
