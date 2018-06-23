@@ -377,7 +377,7 @@
         }
 
         @keyframes slide-right {
-            0% {
+            from {
                 transform: translateX(-100%);
 
             }
@@ -532,7 +532,7 @@
     <div class="bg" style="margin-top: 100px">
         <div class="title">哪來的勇氣？</div>
         <p class="desc">
-            今天，很榮幸和大夥一起見證他們的婚禮，望著他們攜手走向愛情的殿（ㄈ ㄣ ˊ）堂（ㄇ ㄨ ˋ）。 我替大祐感到開心，但也難過；喜的是，大祐和嫻嫻兩人誓約成立一個美滿的家庭。難過的是，大祐以後沒時間玩 PS4（洗衣擦地就飽囉），就沒新遊戲可以借我玩啦。
+            今天，很榮幸和大夥一起見證他們的婚禮，望著他們攜手走向愛情的殿（ㄈ ㄣ ˊ）堂（ㄇ ㄨ ˋ）。 只能說大祐和嫻嫻是真勇者！
 
         </p>
     </div>
@@ -541,21 +541,136 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
 <script>
-    $.fn.isInViewport = function () {
-        var elementTop = $(this)
-            .offset()
-            .top;
-        var elementBottom = elementTop + $(this)
-            .outerHeight();
+    /* $.fn.isInViewport = function () {
+                    var elementTop = $(this)
+                        .offset()
+                        .top;
+                    var elementBottom = elementTop + $(this)
+                        .outerHeight();
 
-        var viewportTop = $(window)
-            .scrollTop();
-        var viewportBottom = $(window)
-            .scrollTop() + window.innerHeight / 2;
-        return elementBottom > viewportTop && elementTop < viewportBottom;
-    };
-	console.log('window onload!')
+                    var viewportTop = $(window)
+                        .scrollTop();
+                    var viewportBottom = $(window)
+                        .scrollTop() + window.innerHeight / 2;
+                    return elementBottom > viewportTop && elementTop < viewportBottom;
+                };
+                console.log('window onload!')
+               */
+    var waypoint1 = new Waypoint({
+        element: document.getElementById('area-1'),
+        handler: function (direction) {
+            $('#area-1').addClass('to-animate');
+        }
+    })
+    var waypoint2 = new Waypoint({
+        element: document.getElementById('area-2'),
+        handler: function (direction) {
+            $('#area-2').addClass('to-animate');
+        }
+    })
+    var waypoint3 = new Waypoint({
+        element: document.getElementById('area-3'),
+        handler: function (direction) {
+            $('#area-3').addClass('to-animate');
+            $('#left-counter')
+                .each(function () {
+                    var $this = $(this),
+                        countTo = $this.attr('data-count');
+                    $this.removeAttr('id');
+
+                    function financial(x) {
+                        return Number.parseFloat(x)
+                            .toFixed(2);
+                    }
+
+                    $({countNum: $this.text()})
+                        .animate({
+                                countNum: countTo
+                            },
+
+                            {
+                                duration: 1000,
+                                easing: 'linear',
+                                step: function () {
+
+                                    $this.text(financial(this.countNum) +
+                                        '秒');
+                                },
+                                complete: function () {
+                                    $this.text(this.countNum + '秒');
+                                    //alert('finished');
+                                    $('#right-counter')
+                                        .each(function () {
+                                            var $this = $(this),
+                                                countTo = $this.attr(
+                                                    'data-count');
+
+                                            $this.removeAttr('id');
+
+                                            function financial(x) {
+                                                return Number.parseFloat(
+                                                        x)
+                                                    .toFixed(2);
+                                            }
+
+                                            setTimeout(function () {
+
+                                                $({
+                                                        countNum: $this
+                                                            .text()
+                                                    })
+                                                    .animate({
+                                                            countNum: countTo
+                                                        },
+
+                                                        {
+                                                            duration: 1000,
+                                                            easing: 'linear',
+                                                            step: function () {
+
+                                                                $this
+                                                                    .text(
+                                                                        financial(
+                                                                            this
+                                                                            .countNum
+                                                                        ) +
+                                                                        '秒'
+                                                                    );
+                                                            },
+                                                            complete: function () {
+                                                                $this
+                                                                    .text(
+                                                                        this
+                                                                        .countNum +
+                                                                        '秒'
+                                                                    );
+                                                                //alert('finished');
+                                                            }
+
+                                                        });
+
+                                            }, 1500)
+
+                                        });
+                                }
+
+                            });
+
+                });
+
+        }
+
+    })
+
+    var waypoint4 = new Waypoint({
+        element: document.getElementById('area-4'),
+        handler: function (direction) {
+            $('#area-4').addClass('to-animate');
+        }
+    })
+/*
     function onload() {
         console.log('window onload!')
         $(window)
@@ -663,7 +778,8 @@
                     });
             });
     }
-	window.addEventListener('load', onload)
+    window.addEventListener('load', onload)
+	*/
 </script>
 
 </html>
